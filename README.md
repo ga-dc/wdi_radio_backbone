@@ -41,8 +41,8 @@ This will be the backend we'll be using, from http://localhost:3000.
 * Create events that correspond with the following actions. You will need to make new methods and/or Handlebars templates for most of these.
   * Rendering an "Edit Song" form.
   * Canceling an "Edit Song" form.
-  * Updating a Grumble with new data.
-  * Deleting a Grumble.
+  * Updating a Song with new data.
+  * Deleting a Song.
 
 ## Bonus
 

@@ -1,4 +1,4 @@
-#new-song-modal  {
+#new-song-modal {
     display: none; /* ensures it’s invisible until it’s called */
     overflow: scroll;
     position: absolute; /* makes the div go into a position that’s absolute to the browser viewing area */
