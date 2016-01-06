@@ -8,12 +8,12 @@ App.Views.Song = Backbone.View.extend({
 		"click .close" : 	"closeEditForm",
 		"click .submit" : "submitEditForm",
 		"click .delete" : "deleteSong"
+		// "click .song" : "showPlayer"
 
 	},
 
 	renderEditForm: function() {
     this.$el.html( this.formTemplate( this.model.toJSON() ));
-		console.log(this.model);
     $("#new-song-modal").show();
 	},
 
@@ -30,7 +30,6 @@ App.Views.Song = Backbone.View.extend({
       audio_url: $("#new-song-audio-url").val(),
       album_art: $("#new-song-album-art").val()
     }
-    console.log(this.model);
     this.model.save(data);
 	},
 
@@ -39,19 +38,29 @@ App.Views.Song = Backbone.View.extend({
     this.$el.fadeOut()
 	},
 
+	// showPlayer: function() {
+	// 	console.log('click')
+	// 	this.$el.html( this.template( this.model.toJSON() ));
+	// 	$('#player-section').append(this.$el);
+	// },
+
 	initialize: function() {
 		this.template = Handlebars.compile($("#songTemplate").html());
 		this.formTemplate = Handlebars.compile($("#songForm").html());
-    this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model, 'change', function() {
+    	this.$el.html( this.template( this.model.toJSON()));
+    });
     this.render();
 	},
+
+	sorting: function(everySong) {
+    everySong.sort(function(obj1, obj2) {
+    	return obj1.id - obj2.id;
+    })
+  },
 
 	render: function() {
 		this.$el.html( this.template( this.model.toJSON() ));
     $('#library').append(this.$el);
-    // console.log(this.model.toJSON())
-    var allSongs = [];
-    allSongs.push(this.model.toJSON())
-    console.log(allSongs.length)
 	}
 });

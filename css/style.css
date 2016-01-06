@@ -14,7 +14,7 @@ body {
 #player-section {
   float:left;
   width: 20%;
-}
+  /*border: 1px solid grey;*/
 
 #player {
   text-align: center;

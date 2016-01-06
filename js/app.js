@@ -7,13 +7,21 @@ App = {
 
 $(document).ready(function() {
 
-	var songs = new App.Collections.Songs();
+	window.songs = new App.Collections.Songs();
 	
 	songs.fetch().then(function() {
+		everySong = [];
 		songs.models.forEach( function(song){
 			var songView = new App.Views.Song({ model: song })
-			// $("songs").append(songView.$el)
 		})
 	})
+
+	songs.comparator = 'artist';
+  songs.sort();
+  $("[name='sort-by']").on('change', function() {
+  	songs.comparator = this.value;
+  	songs.sort();
+  	App.Views.Song.render();
+  });
 
 });
