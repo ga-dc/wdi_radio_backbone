@@ -44,9 +44,24 @@ This will be the backend we'll be using, from http://localhost:3000.
   * Updating a Grumble with new data.
   * Deleting a Grumble.
 
+## Wednesday: Add Collection View, and Specialty Views
+
+### Collection View
+
+* Define a Backbone collection view of your `songs` collection
+* Bind the collection view to an element in the HTML
+* Modify `app.js` to render the populate and render the collection view using events
+
+### Specialty View
+
+* Define a Backbone specialty view for `player`
+  * When you click a song in the collection view, should play song in player
+* Define a specialty view for `create` song
+
 ## Bonus
 
 * Add functionality to sort songs (e.g., by artists, title, album).
 * Add a search box that live-filters the list of songs.
 * Add a list of recently played songs to the player view.
 * Add a playlist model to the app, and let the user create and play playlists.
+* Bonus features that make sense to be specialty views should be implemented as such
