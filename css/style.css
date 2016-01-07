@@ -12,8 +12,12 @@ body {
 }
 
 #player-section {
-  float:left;
+  top: 0;
   width: 20%;
+  right: 0;
+  top: 75px;
+  position: fixed;
+  font-size: 18px;
   /*border: 1px solid grey;*/
 
 #player {

@@ -1,4 +1,4 @@
-<html>
+ <html>
 <head>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -10,6 +10,10 @@
   <script src="js/models/song.js"></script>
   <script src="js/collections/songs.js"></script>
   <script src="js/views/song.js"></script>
+  <script src="js/views/songsList.js"></script>
+  <script src="js/views/songCreate.js"></script>  
+  <script src="js/views/player.js"></script>
+
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/song.css">
@@ -20,57 +24,92 @@
 </head>
 <body>
 
-  <div class="main">
 
   <header id="page-header">
     <span class="logo">WDI Radio</span>
     <ul class="nav">
       <li><a href="#">Library</a></li>
-      <li><a href="#songs/new" class="add">Add Song</a></li>
+      <!-- <li><a href="#songs/new" class="add">Add Song</a></li> -->
+      <li><a class="add">Add Song</a></li>
     </ul>
+
+       <div class="new-container"></div>
   </header>
 
-  <div id="sort-by">
-    <select name="sort-by">
-      <option value="artist">Artist</option>
-      <option value="genre">Genre</option>
-      <option value="album">Album</option>
-      <option value="title">Song Title</option>      
-    </select>
-  </div>
+    <div class="main">
 
-  <div id="player-section">
-    <h2>Now playing</h2>
-    <div id="player"></div>
-  </div>
 
   <div id="main-content">
+
+    <div id="sort-by">
+      <select name="sort-by">
+        <option value="artist">Artist</option>
+        <option value="genre">Genre</option>
+        <option value="album">Album</option>
+        <option value="title">Song Title</option>      
+      </select>
+    </div>
+
+    <div id="player-section">
+    <span id="play-text"></span>
+      <div id="player">
+      </div>
+    </div>
+
     <h2>Library</h2>
-    <div id="library"></div>
+
+
+    <div id="library">
+    </div>
   </div>
 
   <script id="songForm" type="text/x-handle-bars-template">
-    <div id="new-song-modal">
+    <div class="edit-song-modal">
       <span class="close">[x]</span>
       <h2>Song Details</h2>
-      <div class="new-song">
-        <label for="new-song-artist">Artist</label>
-        <input id="new-song-artist" value="{{artist}}"></input>
+      <div class="edit-song">
+        <label for="edit-song-artist">Artist</label>
+        <input id="edit-song-artist" value="{{artist}}"></input>
 
-        <label for="new-song-title">Title</label>
-        <input id="new-song-title" value="{{title}}"></input>
+        <label for="edit-song-title">Title</label>
+        <input id="edit-song-title" value="{{title}}"></input>
 
-        <label for="new-song-genre">Genre</label>
-        <input id="new-song-genre" value="{{genre}}"></input>
+        <label for="edit-song-genre">Genre</label>
+        <input id="edit-song-genre" value="{{genre}}"></input>
 
-        <label for="new-song-audio-url">Audio URL</label>
-        <input id="new-song-audio-url" value="{{audio_url}}"></input>
+        <label for="edit-song-audio-url">Audio URL</label>
+        <input id="edit-song-audio-url" value="{{audio_url}}"></input>
 
-        <label for="new-song-album-art">Album Art URL</label>
-        <input id="new-song-album-art" value="{{album_art}}"></input>
+        <label for="edit-song-album-art">Album Art URL</label>
+        <input id="edit-song-album-art" value="{{album_art}}"></input>
 
         <button class="submit">Save</button>
         <button class="delete">Delete Forever</button>
+      </div>
+    </div>
+  </script>
+
+<script id="newSong" type="text/x-handle-bars-template">
+    <div class="new-song-modal">
+      <span class="close">[x]</span>
+      <h2>Create New</h2>
+      <div class="new-song">
+        <label for="new-song-artist">Artist</label>
+        <input id="new-song-artist"></input>
+
+        <label for="new-song-title">Title</label>
+        <input id="new-song-title"></input>
+
+        <label for="new-song-genre">Genre</label>
+        <input id="new-song-genre"></input>
+
+        <label for="new-song-audio-url">Audio URL</label>
+        <input id="new-song-audio-url"></input>
+
+        <label for="new-song-album-art">Album Art URL</label>
+        <input id="new-song-album-art"></input>
+
+        <button class="submit">Save</button>
       </div>
     </div>
   </script>
@@ -80,10 +119,26 @@
       <div class="song-image"><img src="{{ album_art }}" /></div>
       <div class="title">{{ title }}</div>
       <div class="artist">{{ artist }}</div>
-      <button class="edit">Edit This</button>
+      <button class="edit">Edit This</button> 
     </div>  
     </script>
   </div>
+
+  <script id="audioPlayer" type="text/x-handle-bars-template">
+    <span class="minimize">[-]</span>
+  <div class="song-image">
+    <img src="{{album_art}}" />
+  </div>
+  <div class="song-info">
+    <p>
+      {{title}}
+    </p>
+    <p>
+      {{artist}}
+    </p>
+  </div>
+  <audio autoplay controls src="{{audio_url}}"></audio>
+  </script>
   
 </body>
 </html>

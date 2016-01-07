@@ -1,5 +1,9 @@
 #page-header {
   border-bottom: 1px solid gray;
+  /*position: absolute;*/
+  top: 0;
+  width: 100%;
+  /*padding-bottom: 20px;*/
 }
 
 .logo {

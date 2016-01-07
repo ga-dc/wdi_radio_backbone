@@ -4,17 +4,24 @@ App.Views.Song = Backbone.View.extend({
 
 	events: {
 
-		"click .edit" : 	"renderEditForm",
-		"click .close" : 	"closeEditForm",
+		"click .edit" 	: "renderEditForm",
+		"click .close" 	: "closeEditForm",
 		"click .submit" : "submitEditForm",
-		"click .delete" : "deleteSong"
+		"click .delete" : "deleteSong",
+		"click .song"		: "startPlayer"
 		// "click .song" : "showPlayer"
 
 	},
 
+	startPlayer: function() {
+		console.log(this.model);
+		var player = new App.Views.Player({ model: this.model })
+	},
+
 	renderEditForm: function() {
     this.$el.html( this.formTemplate( this.model.toJSON() ));
-    $("#new-song-modal").show();
+    $(".edit-song-modal").show();
+    console.log(this)
 	},
 
 	closeEditForm: function() {
@@ -24,11 +31,11 @@ App.Views.Song = Backbone.View.extend({
 	submitEditForm: function() {
 		event.preventDefault();
     var data = {
-      artist: $("#new-song-artist").val(),
-      title: $("#new-song-title").val(),
-      genre: $("#new-song-genre").val(),
-      audio_url: $("#new-song-audio-url").val(),
-      album_art: $("#new-song-album-art").val()
+      artist: $("#edit-song-artist").val(),
+      title: $("#edit-song-title").val(),
+      genre: $("#edit-song-genre").val(),
+      audio_url: $("#edit-song-audio-url").val(),
+      album_art: $("#edit-song-album-art").val()
     }
     this.model.save(data);
 	},
@@ -50,14 +57,15 @@ App.Views.Song = Backbone.View.extend({
     this.listenTo(this.model, 'change', function() {
     	this.$el.html( this.template( this.model.toJSON()));
     });
+    // this.listenTo(this.model, 'change', this.render);
     this.render();
 	},
 
-	sorting: function(everySong) {
-    everySong.sort(function(obj1, obj2) {
-    	return obj1.id - obj2.id;
-    })
-  },
+	// sorting: function(everySong) {
+ //    everySong.sort(function(obj1, obj2) {
+ //    	return obj1.id - obj2.id;
+ //    })
+ //  },
 
 	render: function() {
 		this.$el.html( this.template( this.model.toJSON() ));
