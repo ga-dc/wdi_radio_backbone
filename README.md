@@ -41,8 +41,8 @@ This will be the backend we'll be using, from http://localhost:3000.
 * Create events that correspond with the following actions. You will need to make new methods and/or Handlebars templates for most of these.
   * Rendering an "Edit Song" form.
   * Canceling an "Edit Song" form.
-  * Updating a Grumble with new data.
-  * Deleting a Grumble.
+  * Updating a song with new data.
+  * Deleting a song.
 
 ## Wednesday: Add Collection View, and Specialty Views
 
@@ -57,6 +57,18 @@ This will be the backend we'll be using, from http://localhost:3000.
 * Define a Backbone specialty view for `player`
   * When you click a song in the collection view, should play song in player
 * Define a specialty view for `create` song
+
+## Thursday: Add Backbone Router
+
+### Router
+
+* Implement a Backbone Router for your application
+* Add an empty `Router` object to the global `App` object to namespace your router definition
+* Create a Backbone Router definition
+  * Setup a root route
+  * Setup a route for adding a new song
+  * Setup a route for which song is currently playing
+* Create an instance of our router in `app.js` and initialize it
 
 ## Bonus
 
