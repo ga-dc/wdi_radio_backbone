@@ -13,6 +13,7 @@
   <script src="js/views/songsList.js"></script>
   <script src="js/views/songCreate.js"></script>  
   <script src="js/views/player.js"></script>
+  <script src="js/routers/song.js"></script>
 
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -28,7 +29,7 @@
   <header id="page-header">
     <span class="logo">WDI Radio</span>
     <ul class="nav">
-      <li><a href="#">Library</a></li>
+      <li><a href="">Library</a></li>
       <!-- <li><a href="#songs/new" class="add">Add Song</a></li> -->
       <li><a class="add">Add Song</a></li>
     </ul>
@@ -41,25 +42,14 @@
 
   <div id="main-content">
 
-    <div id="sort-by">
-      <select name="sort-by">
-        <option value="artist">Artist</option>
-        <option value="genre">Genre</option>
-        <option value="album">Album</option>
-        <option value="title">Song Title</option>      
-      </select>
-    </div>
-
     <div id="player-section">
     <span id="play-text"></span>
       <div id="player">
       </div>
     </div>
 
-    <h2>Library</h2>
-
-
-    <div id="library">
+   <h2><a href="">Library</a></h2>
+       <div id="library">
     </div>
   </div>
 

@@ -44,7 +44,14 @@ This will be the backend we'll be using, from http://localhost:3000.
   * Updating a Song with new data.
   * Deleting a Song.
 
-## Bonus
+THURSDAY
+DONE Implement a Backbone Router for your application
+DONE Add an empty Router object to the global App object
+DONE Create a Backbone Router definition
+DONE Setup a root route
+DONE Setup a route for adding a new song
+Setup a route for which song is currently playing
+DONE Create an instance of our router in app.js and initialize it
 
 * Add functionality to sort songs (e.g., by artists, title, album).
 * Add a search box that live-filters the list of songs.

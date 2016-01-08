@@ -8,6 +8,7 @@ App = {
 $(document).ready(function() {
 
 	// window.songs = new App.Collections.Songs();
+	App.Routers.song = new App.Routers.Song();
 
   var songs = new App.Collections.Songs();
   var songsList = new App.Views.SongsList( {collection: songs} );
@@ -15,7 +16,7 @@ $(document).ready(function() {
   new App.Views.SongCreate( {collection: songs} );
   // new App.Views.Player( {collection: songs} )
 
-	
+	Backbone.history.start();
 	// songs.fetch().then(function() {
 	// 	everySong = [];
 	// 	songs.models.forEach( function(song){

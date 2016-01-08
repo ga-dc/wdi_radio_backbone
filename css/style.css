@@ -5,7 +5,6 @@ html {
 }
 
 body {
-  /*position: relative;*/
   color: #555;
   font-family: 'Lato', 'Arial', sans-serif;
   height: 100%;
@@ -18,7 +17,6 @@ body {
   top: 75px;
   position: fixed;
   font-size: 18px;
-  /*border: 1px solid grey;*/
 
 #player {
   text-align: center;

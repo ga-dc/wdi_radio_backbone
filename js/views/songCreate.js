@@ -11,10 +11,12 @@ App.Views.SongCreate = Backbone.View.extend({
 	},
 
 	openNew: function() {
+    App.Routers.song.navigate('new');
     $(".new-song-modal").show();
 	},
 
 	closeNew: function() {
+    App.Routers.song.navigate('');
     $(".new-song-modal").hide();
 	},
 
